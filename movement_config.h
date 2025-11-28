@@ -29,6 +29,11 @@
 
 const watch_face_t watch_faces[] = {
     clock_face,
+    wordoftheday_face
+};
+
+/*const watch_face_t watch_faces[] = {
+    clock_face,
     world_clock_face,
     sunrise_sunset_face,
     moon_phase_face,
@@ -39,7 +44,7 @@ const watch_face_t watch_faces[] = {
     voltage_face,
     settings_face,
     set_time_face
-};
+};*/
 
 #define MOVEMENT_NUM_FACES (sizeof(watch_faces) / sizeof(watch_face_t))
 
@@ -65,7 +70,7 @@ const watch_face_t watch_faces[] = {
 #define MOVEMENT_DEFAULT_24H_MODE false
 
 /* Enable or disable the sound on mode button press */
-#define MOVEMENT_DEFAULT_BUTTON_SOUND true
+#define MOVEMENT_DEFAULT_BUTTON_SOUND false 
 
 #define MOVEMENT_DEFAULT_BUTTON_VOLUME WATCH_BUZZER_VOLUME_SOFT
 
