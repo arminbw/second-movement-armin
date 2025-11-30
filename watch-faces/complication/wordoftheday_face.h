@@ -54,6 +54,13 @@ void wordoftheday_face_resign(void *context);
 
 static const char words[][6][7] = {
   { "SEi  ", "AbSEnT"},
+  { "CRY  ", "WOLF  "},
+  { "REAd ", "A BOOK"},
+  { "drink", "tEA   "},
+  { "EAt  ", "hEArt "},
+  { "LEtit", "rIP   "},
+  { "Putit", "AWAY  "},
+  { "DiP A", "tOE in"},
   { "DON'T", "PANIC "},
   { "SEi  ", "fESCH "},
   { "SEi  ", "bESSEr"},
@@ -145,7 +152,7 @@ static const char words[][6][7] = {
   { "bIdOn", "Art   "},
   { "PUtOn", "bLASt "},
   { "Runto", "GroUnd"},
-  { "RunUP", "hiLL  "},
+  { "RunUP", "A hiLL"},
   { "SAYHi", "Say HO"},
   { "LEtit", "GO    "},
   { "CUt  ", "COrNer"},
@@ -157,6 +164,8 @@ static const char words[][6][7] = {
   { "get  ", "A GrIP"},
   { "CUt A", "dEAL  "},
   { "CUt A", "pATh  "},
+  { "SET  ", "pACE  "},
+  { "bE   ", "tHerE "},
   { "Run  ", "AFOUL "},
   { "bid  ", "higH  "},
   { "OPt  ",  "OUt  "}
