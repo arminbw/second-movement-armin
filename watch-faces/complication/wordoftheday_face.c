@@ -26,6 +26,7 @@
 #include <string.h>
 #include "wordoftheday_face.h"
 #include "watch.h"
+#include "watch_utility.h"
 #include "watch_common_display.h"
 
 void wordoftheday_face_setup(uint8_t watch_face_index, void ** context_ptr) {
@@ -51,8 +52,14 @@ bool wordoftheday_face_loop(movement_event_t event, void *context) {
     
     switch (event.event_type) {
         case EVENT_ACTIVATE:
-            watch_display_text_with_fallback(WATCH_POSITION_TOP, "ABCDE", "  ");
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, "ABCDEF", "  ");
+            watch_date_time_t date_time = movement_get_local_date_time();
+            uint16_t day_of_year = watch_utility_days_since_new_year(date_time.unit.year, date_time.unit.month, date_time.unit.day);
+            char buf[9]; 
+            sprintf(buf, "%3d  ", day_of_year);
+            // uint8_t is_leap(uint16_t year);
+            // movement_clock_mode_24h() == MOVEMENT_CLOCK_MODE_024H ? "%02d%02d%02d%02d" : "%2d%2d%02d%02d",
+            watch_display_text_with_fallback(WATCH_POSITION_TOP, buf, "   ");
+            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, "kKxXxX", "  ");
             break;
         case EVENT_TICK:
             // If needed, update your display here.
