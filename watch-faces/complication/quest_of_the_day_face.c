@@ -24,43 +24,42 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "wordoftheday_face.h"
+#include "quest_of_the_day_face.h"
 #include "watch.h"
 #include "watch_utility.h"
 #include "watch_common_display.h"
 
-void wordoftheday_face_setup(uint8_t watch_face_index, void ** context_ptr) {
+void quest_of_the_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     (void) watch_face_index;
     if (*context_ptr == NULL) {
-        *context_ptr = malloc(sizeof(wordoftheday_state_t));
-        memset(*context_ptr, 0, sizeof(wordoftheday_state_t));
+        *context_ptr = malloc(sizeof(quest_of_the_day_state_t));
+        memset(*context_ptr, 0, sizeof(quest_of_the_day_state_t));
         // Do any one-time tasks in here; the inside of this conditional happens only at boot.
     }
     // Do any pin or peripheral setup here; this will be called whenever the watch wakes from deep sleep.
 }
 
-void wordoftheday_face_activate(void *context) {
-    wordoftheday_state_t *state = (wordoftheday_state_t *)context;
+void quest_of_the_day_face_activate(void *context) {
+    quest_of_the_day_state_t *state = (quest_of_the_day_state_t *)context;
 
     // Handle any tasks related to your watch face coming on screen.
     state->counter = 0;
 }
 
-bool wordoftheday_face_loop(movement_event_t event, void *context) {
-    wordoftheday_state_t *state = (wordoftheday_state_t *)context;
-    unsigned int wordsMax;
+bool quest_of_the_day_face_loop(movement_event_t event, void *context) {
+    quest_of_the_day_state_t *state = (quest_of_the_day_state_t *)context;
+    // unsigned int wordsMax;
+    watch_date_time_t date_time;
+    uint16_t day_of_year;
     
     switch (event.event_type) {
         case EVENT_ACTIVATE:
-            watch_date_time_t date_time = movement_get_local_date_time();
-            uint16_t day_of_year = watch_utility_days_since_new_year(date_time.unit.year, date_time.unit.month, date_time.unit.day);
-            char buf[9];
-
+            date_time = movement_get_local_date_time();
+            day_of_year = watch_utility_days_since_new_year(date_time.unit.year, date_time.unit.month, date_time.unit.day);
+            day_of_year = day_of_year;
             state->counter = day_of_year;
-            // sprintf(buf, "%3d  ", day_of_year);
+            // do later:
             // uint8_t is_leap(uint16_t year);
-            // movement_clock_mode_24h() == MOVEMENT_CLOCK_MODE_024H ? "%02d%02d%02d%02d" : "%2d%2d%02d%02d",
-            // watch_display_text_with_fallback(WATCH_POSITION_TOP, buf, "   ");
             watch_display_text_with_fallback(WATCH_POSITION_TOP, words[state->counter][0],"ERR  ");
             watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, words[state->counter][1],"ERR  ");
             break;
@@ -73,10 +72,10 @@ bool wordoftheday_face_loop(movement_event_t event, void *context) {
             // empty case for EVENT_LIGHT_BUTTON_DOWN.
             break;
         case EVENT_ALARM_BUTTON_UP:
-            wordsMax = sizeof(words) / sizeof(words[0]);
-            state->counter = (state->counter + 1) % wordsMax;
-            watch_display_text_with_fallback(WATCH_POSITION_TOP, words[state->counter][0],"ERR  ");
-            watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, words[state->counter][1],"ERR  ");
+            // wordsMax = sizeof(words) / sizeof(words[0]);
+            // state->counter = (state->counter + 1) % wordsMax;
+            // watch_display_text_with_fallback(WATCH_POSITION_TOP, words[state->counter][0],"ERR  ");
+            // watch_display_text_with_fallback(WATCH_POSITION_BOTTOM, words[state->counter][1],"ERR  ");
             break;
         case EVENT_TIMEOUT:
             // Your watch face will receive this event after a period of inactivity. If it makes sense to resign,
@@ -102,7 +101,7 @@ bool wordoftheday_face_loop(movement_event_t event, void *context) {
     return true;
 }
 
-void wordoftheday_face_resign(void *context) {
+void quest_of_the_day_face_resign(void *context) {
     (void) context;
 
     // handle any cleanup before your watch face goes off-screen.

@@ -73,5 +73,5 @@
 #include "wareki_face.h"
 #include "deadline_face.h"
 #include "wordle_face.h"
-#include "wordoftheday_face.h"
+#include "quest_of_the_day_face.h"
 // New includes go above this line.
