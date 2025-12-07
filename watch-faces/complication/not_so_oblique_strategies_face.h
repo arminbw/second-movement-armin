@@ -37,18 +37,18 @@ typedef struct {
     // Anything you need to keep track of, put it here!
     uint8_t unused;
     unsigned int counter;
-} quest_of_the_day_state_t;
+} not_so_oblique_strategies_state_t;
 
-void quest_of_the_day_face_setup(uint8_t watch_face_index, void ** context_ptr);
-void quest_of_the_day_face_activate(void *context);
-bool quest_of_the_day_face_loop(movement_event_t event, void *context);
-void quest_of_the_day_face_resign(void *context);
+void not_so_oblique_strategies_face_setup(uint8_t watch_face_index, void ** context_ptr);
+void not_so_oblique_strategies_face_activate(void *context);
+bool not_so_oblique_strategies_face_loop(movement_event_t event, void *context);
+void not_so_oblique_strategies_face_resign(void *context);
 
-#define quest_of_the_day_face ((const watch_face_t){ \
-    quest_of_the_day_face_setup, \
-    quest_of_the_day_face_activate, \
-    quest_of_the_day_face_loop, \
-    quest_of_the_day_face_resign, \
+#define not_so_oblique_strategies_face ((const watch_face_t){ \
+    not_so_oblique_strategies_face_setup, \
+    not_so_oblique_strategies_face_activate, \
+    not_so_oblique_strategies_face_loop, \
+    not_so_oblique_strategies_face_resign, \
     NULL, \
 })
 

@@ -24,30 +24,30 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "quest_of_the_day_face.h"
+#include "not_so_oblique_strategies_face.h"
 #include "watch.h"
 #include "watch_utility.h"
 #include "watch_common_display.h"
 
-void quest_of_the_day_face_setup(uint8_t watch_face_index, void ** context_ptr) {
+void not_so_oblique_strategies_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     (void) watch_face_index;
     if (*context_ptr == NULL) {
-        *context_ptr = malloc(sizeof(quest_of_the_day_state_t));
-        memset(*context_ptr, 0, sizeof(quest_of_the_day_state_t));
+        *context_ptr = malloc(sizeof(not_so_oblique_strategies_state_t));
+        memset(*context_ptr, 0, sizeof(not_so_oblique_strategies_state_t));
         // Do any one-time tasks in here; the inside of this conditional happens only at boot.
     }
     // Do any pin or peripheral setup here; this will be called whenever the watch wakes from deep sleep.
 }
 
-void quest_of_the_day_face_activate(void *context) {
-    quest_of_the_day_state_t *state = (quest_of_the_day_state_t *)context;
+void not_so_oblique_strategies_face_activate(void *context) {
+    not_so_oblique_strategies_state_t *state = (not_so_oblique_strategies_state_t *)context;
 
     // Handle any tasks related to your watch face coming on screen.
     state->counter = 0;
 }
 
-bool quest_of_the_day_face_loop(movement_event_t event, void *context) {
-    quest_of_the_day_state_t *state = (quest_of_the_day_state_t *)context;
+bool not_so_oblique_strategies_face_loop(movement_event_t event, void *context) {
+    not_so_oblique_strategies_state_t *state = (not_so_oblique_strategies_state_t *)context;
     watch_date_time_t date_time;
     uint16_t day_of_year;
     
@@ -107,7 +107,7 @@ bool quest_of_the_day_face_loop(movement_event_t event, void *context) {
     return true;
 }
 
-void quest_of_the_day_face_resign(void *context) {
+void not_so_oblique_strategies_face_resign(void *context) {
     (void) context;
 
     // handle any cleanup before your watch face goes off-screen.
