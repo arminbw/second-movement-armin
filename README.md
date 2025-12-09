@@ -1,6 +1,6 @@
 Intro
 =====
-Ever wanted a watch that tells you what to do with supreme confidence and zero knowledge of your life? Now’s your chance. Press the bottom-left button to receive a daily edict.
+Ever wanted a bossy watch that tells you what to do with supreme confidence and zero knowledge of your life? Now’s your chance. Press the bottom-left button to receive a daily edict.
 
 (Long-press on the bottom-left button will show you the config-watch-face)
 
