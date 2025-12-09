@@ -8,9 +8,7 @@ Second Movement
 ===============
 [Sensor Watch](https://www.sensorwatch.net) by [Oddly Specific Objects](https://www.oddlyspecificobjects.com/) is an ARM Cortex M0+ board swap for the classic Casio F-91W wristwatch.
 
-This is a fork of the Community Firmware. 
-
-It includes a new watch face: **not-so-oblique-strategies**.
+This is a fork of the Community Firmware which includes a new watch face: **not-so-oblique-strategies**.
 
 It also adds a few customisations in movement_config.h, putting the focus on the *Sensor Watch Pro* and the *Custom Display*. If you want to use this watch face in another setup, adopt the config file accordingly.
 
